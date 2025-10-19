@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/home";
+import HomeScreen from "./pages/home";
 
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<HomeScreen />} />
     </Routes>
   );
 }

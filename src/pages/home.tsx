@@ -1,6 +1,6 @@
 import Stack from "@mui/material/Stack";
 
-const HomePage = () => {
+const HomeScreen = () => {
     return (
         <Stack direction={'column'}>
             
@@ -8,4 +8,4 @@ const HomePage = () => {
     );
 }
 
-export default HomePage;
+export default HomeScreen;
