@@ -16,6 +16,7 @@ import {
     InputAdornment,
 } from "@mui/material";
 import { Close, Visibility, VisibilityOff } from "@mui/icons-material";
+import React from "react";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -43,12 +44,11 @@ const LoginDialog = () => {
     const isOpen = useAppSelector((state) => state.dialogs.isLoginDialogOpen);
     const [tabValue, setTabValue] = useState(0);
     const [showPassword, setShowPassword] = useState(false);
+    const [verificationEnded, setVerificationEnded] = React.useState(false);
     const [formData, setFormData] = useState({
         email: "",
         password: "",
         confirmPassword: "",
-        firstName: "",
-        lastName: "",
     });
 
     const handleClose = () => {
@@ -58,8 +58,6 @@ const LoginDialog = () => {
             email: "",
             password: "",
             confirmPassword: "",
-            firstName: "",
-            lastName: "",
         });
     };
 
@@ -168,21 +166,6 @@ const LoginDialog = () => {
                         {/* Форма регистрации */}
                         <TabPanel value={tabValue} index={1}>
                             <Stack component="form" spacing={3} onSubmit={handleSubmit}>
-                                <Stack direction="row" spacing={2}>
-                                    <TextField
-                                        fullWidth
-                                        label="Имя"
-                                        value={formData.firstName}
-                                        onChange={handleInputChange("firstName")}
-                                        required
-                                    />
-                                    <TextField
-                                        fullWidth
-                                        label="Фамилия"
-                                        value={formData.lastName}
-                                        onChange={handleInputChange("lastName")}
-                                    />
-                                </Stack>
                                 <TextField
                                     fullWidth
                                     label="Email"
@@ -216,11 +199,24 @@ const LoginDialog = () => {
                                     onChange={handleInputChange("confirmPassword")}
                                     required
                                 />
+                                <Stack direction={'row'} spacing={2}>
+                                    <TextField
+                                        fullWidth
+                                        label="Введите код"
+                                        type={showPassword ? "text" : "password"}
+                                        required
+                                    />
+                                    <Button variant="text">
+                                        Отправить код
+                                    </Button>
+                                </Stack>
+
                                 <Button
                                     type="submit"
                                     variant="contained"
                                     size="large"
                                     fullWidth
+                                    disabled={!verificationEnded}
                                     sx={{ py: 1.5 }}
                                 >
                                     Зарегистрироваться

@@ -27,7 +27,7 @@ const PopularCoffees = () => {
         )
     }
     return (
-        <Stack height={400} component={'section'} spacing={4}
+        <Stack component={'section'} spacing={4}
             sx={{
                 py: 8,
                 px: 2
