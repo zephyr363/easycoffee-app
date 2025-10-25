@@ -1,4 +1,6 @@
 export interface PaginationResponseI<T> {
-    items: T[];
+    results: T[];
+    next: string | null;
+    previous: string | null;
     count: number;
 }

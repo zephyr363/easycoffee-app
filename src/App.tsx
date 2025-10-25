@@ -4,7 +4,7 @@ import HomeScreen from "./pages/home";
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomeScreen />} />
+      <Route index path="/" element={<HomeScreen />} />
     </Routes>
   );
 }

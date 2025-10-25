@@ -1,5 +1,5 @@
 {
-  "name": "handyhands-app",
+  "name": "easycoffee-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,6 +15,8 @@
     "@mui/icons-material": "^7.3.4",
     "@mui/material": "^7.3.4",
     "@reduxjs/toolkit": "^2.9.1",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
