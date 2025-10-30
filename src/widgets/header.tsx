@@ -15,6 +15,7 @@ import {
     useMediaQuery,
     Typography
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 type MenuItemType = {
     label: string;
@@ -23,6 +24,7 @@ type MenuItemType = {
 
 const Header = () => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate()
     const [mobileOpen, setMobileOpen] = useState(false);
 
     const theme = useTheme();
@@ -32,7 +34,7 @@ const Header = () => {
     const items: MenuItemType[] = [
         { 'label': 'Главная', 'link': '/' },
         { 'label': 'Меню', 'link': '/menu' },
-        { 'label': 'О нас', 'link': '/#id-about-section' },
+        { 'label': 'О нас', 'link': '/#about' },
     ];
 
     const handleDrawerToggle = () => {
@@ -44,8 +46,8 @@ const Header = () => {
         if (isMobile) {
             setMobileOpen(false);
         }
-        // Здесь можно добавить логику навигации
-        console.log('Navigate to:', link);
+        navigate(link)
+
     };
 
     const renderMenuItem = (item: MenuItemType, isMobile: boolean = false) => {

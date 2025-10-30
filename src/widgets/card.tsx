@@ -11,10 +11,14 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import CoffeeImagesCarousel from "./coffee-image-carousel";
 import type { CoffeeI } from "../types/coffee";
+import Chip from "@mui/material/Chip";
+import { useTheme } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 
 const CoffeeCard: React.FC<{ data: CoffeeI }> = ({ data }) => {
     const [isFavorite, setIsFavorite] = React.useState(false);
-
+    const theme = useTheme();
+    const navigate = useNavigate()
     const handleToggleFavorite = () => {
         setIsFavorite(!isFavorite);
     };
@@ -22,7 +26,8 @@ const CoffeeCard: React.FC<{ data: CoffeeI }> = ({ data }) => {
     return (
         <Card
             sx={{
-                maxWidth: 460,
+                maxWidth: 400,
+                maxHeight: 550,
                 height: '100%',
                 transition: 'all 0.3s ease',
                 '&:hover': {
@@ -30,24 +35,17 @@ const CoffeeCard: React.FC<{ data: CoffeeI }> = ({ data }) => {
                     boxShadow: 6
                 }
             }}
+            onClick={() => navigate(`/coffees/${data.id}`)}
         >
             <Stack height="100%">
                 {/* Изображение кофе */}
-                {/* Изображение кофе */}
-                <Stack
-                    sx={{
-                        height: 250,
-                        overflow: "hidden",
-                    }}
-                >
-                    <CoffeeImagesCarousel items={data.coffee_images ?? []} />
-                </Stack>
+                <CoffeeImagesCarousel items={data.coffee_images ?? []} />
 
                 <CardContent sx={{ flexGrow: 1, p: 3 }}>
                     <Stack spacing={2} height="100%">
                         {/* Заголовок и рейтинг */}
                         <Stack spacing={1}>
-                            <Typography variant="h6" component="h3" fontWeight="bold">
+                            <Typography variant="subtitle1" component="h3" fontWeight="bold">
                                 {data.name}
                             </Typography>
                             {data.avg_rating ? (
@@ -71,11 +69,8 @@ const CoffeeCard: React.FC<{ data: CoffeeI }> = ({ data }) => {
                             {data.description}
                         </Typography>
 
-                        {/* Характеристики */}
-                        <Stack direction="row" spacing={2}>
-                            <Typography variant="body2" sx={{ color: 'primary.main', fontWeight: 'medium' }}>
-                                Категория: {data.category.name}
-                            </Typography>
+                        <Stack direction={'row'}>
+                            <Chip label={data.category.name} variant="outlined" color={'primary'} />
                         </Stack>
 
                         {/* Цена и кнопки действий */}

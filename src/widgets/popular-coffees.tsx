@@ -26,6 +26,7 @@ const PopularCoffees = () => {
             </Grid>
         )
     }
+    
     return (
         <Stack component={'section'} spacing={4}
             sx={{

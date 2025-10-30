@@ -60,7 +60,7 @@ const Footer = () => {
                     <Link href="/menu" color="inherit" underline="hover" sx={{ cursor: 'pointer' }}>
                         Меню
                     </Link>
-                    <Link href="/about" color="inherit" underline="hover" sx={{ cursor: 'pointer' }}>
+                    <Link href="/#about" color="inherit" underline="hover" sx={{ cursor: 'pointer' }}>
                         О нас
                     </Link>
                     <Link href="/contact" color="inherit" underline="hover" sx={{ cursor: 'pointer' }}>

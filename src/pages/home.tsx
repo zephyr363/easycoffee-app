@@ -7,7 +7,7 @@ import AboutSection from "../widgets/about-section";
 
 const HomeScreen = () => {
     return (
-        <Stack component={'main'} direction={'column'} height={'100vh'} width={'100%'}>
+        <Stack component={'main'} direction={'column'} height={'100vh'} width={'100%'} sx={{overflowY: 'auto'}}>
             <Header />
             <HeroSection />
             <AboutSection />
