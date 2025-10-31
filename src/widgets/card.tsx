@@ -4,16 +4,15 @@ import ShoppingCart from "@mui/icons-material/ShoppingCart";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import CoffeeImagesCarousel from "./coffee-image-carousel";
 import type { CoffeeI } from "../types/coffee";
 import Chip from "@mui/material/Chip";
 import { useTheme } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import CoffeeCardCarousel from "./coffee-card-carousel";
 
 const CoffeeCard: React.FC<{ data: CoffeeI }> = ({ data }) => {
     const [isFavorite, setIsFavorite] = React.useState(false);
@@ -39,7 +38,7 @@ const CoffeeCard: React.FC<{ data: CoffeeI }> = ({ data }) => {
         >
             <Stack height="100%">
                 {/* Изображение кофе */}
-                <CoffeeImagesCarousel items={data.coffee_images ?? []} />
+                <CoffeeCardCarousel items={data.coffee_images ?? []} />
 
                 <CardContent sx={{ flexGrow: 1, p: 3 }}>
                     <Stack spacing={2} height="100%">

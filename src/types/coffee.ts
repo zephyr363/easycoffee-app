@@ -13,6 +13,7 @@ export interface CoffeeI {
     stock_quantity: number;
     is_available: boolean;
     avg_rating?: number;
+    review_count?: number;
     created_at: Date;
     updated_at: Date;
     coffee_images?: CoffeeImage[];
@@ -45,6 +46,7 @@ export interface CoffeeReviewI {
     id: number;
     product: CoffeeI;
     author: ProfileI;
+    rating: number;
     comment: string;
     created_at: Date;
     is_approved: string;
